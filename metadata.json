@@ -1,0 +1,6 @@
+
+{
+  "name": "Playground de Algoritmos de IA",
+  "description": "Uma aplicação web para explorar Algoritmos Genéticos e Redes Neurais (MLP com Backpropagation), e interagir com um Assistente de IA potencializado pela API Gemini. Visualize a convergência de AGs para maximização de funções e o treinamento de Redes Neurais para classificação de dígitos.",
+  "requestFramePermissions": []
+}
