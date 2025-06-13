@@ -17,10 +17,12 @@ const linearDerivative = (_x: number): number => 1;
 
 
 export class MLP {
-  public layers: number[];
+  // public layers: number[];
+  public layers: [1, 6 ,3];
   public weights: number[][][]; // weights[layerIdx][neuronIdx][inputIdx]
   public biases: number[][];    // biases[layerIdx][neuronIdx]
-  public activations: ActivationFunctionType[]; // activation function per layer (output layer of previous)
+  // public activations: ActivationFunctionType[]; // activation function per layer (output layer of previous)
+  public activations: ['tanh_approx', 'sigmoid']; // Example: 2 hidden layers with tanh, output layer with sigmoid
 
   constructor(layers: number[], activations: ActivationFunctionType[]) {
     this.layers = layers;
@@ -146,7 +148,17 @@ export class MLP {
 
 export const trainMLP = (
   mlp: MLP,
-  dataset: { input: number[]; output: number[] }[],
+  // dataset: { input: number[]; output: number[] }[],
+  dataset: [
+    { input: [0.0], output: [0,0,0] },
+    { input: [0.14], output: [0,0,1] },
+    { input: [0.28], output: [0,1,0] },
+    { input: [0.42], output: [0,1,1] },
+    { input: [0.57], output: [1,0,0] },
+    { input: [0.71], output: [1,0,1] },
+    { input: [0.85], output: [1,1,0] },
+    { input: [1.0], output: [1,1,1] },
+  ],
   learningRate: number
 ): number => {
   let totalError = 0;
