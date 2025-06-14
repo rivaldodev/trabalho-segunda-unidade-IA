@@ -1,52 +1,51 @@
-
-// Genetic Algorithm Types
+// Tipos para Algoritmo Genético
 export interface GAIndividual {
-  chromosome: string; // Binary string
-  fitness: number;
-  x: number;
-  y: number;
+  chromosome: string; // Cromossomo em string binária
+  fitness: number;    // Valor de aptidão
+  x: number;          // Valor de x decodificado
+  y: number;          // Valor de y decodificado
 }
 
 export interface GAParams {
-  populationSize: number;
-  mutationRate: number;
-  crossoverRate: number;
-  generations: number;
-  chromosomeLength: number; // Total bits for x and y
-  bitsPerVariable: number;   // Bits for one variable (x or y)
-  geneMin: number;
-  geneMax: number;
+  populationSize: number;    // Tamanho da população
+  mutationRate: number;      // Taxa de mutação
+  crossoverRate: number;     // Taxa de crossover
+  generations: number;       // Número de gerações
+  chromosomeLength: number;  // Total de bits para x e y
+  bitsPerVariable: number;   // Bits para cada variável (x ou y)
+  geneMin: number;           // Valor mínimo do gene
+  geneMax: number;           // Valor máximo do gene
 }
 
 export interface GAIterationResult {
-  generation: number;
-  bestFitness: number;
-  averageFitness: number;
-  bestIndividual: GAIndividual | null;
+  generation: number;        // Geração atual
+  bestFitness: number;       // Melhor fitness da geração
+  averageFitness: number;    // Fitness médio
+  bestIndividual: GAIndividual | null; // Melhor indivíduo
 }
 
-// Neural Network Types
+// Tipos para Rede Neural
 export interface NNLayerConfig {
-  neurons: number;
-  activation: ActivationFunctionType; // e.g., 'sigmoid', 'relu'
+  neurons: number;                   // Número de neurônios na camada
+  activation: ActivationFunctionType; // Função de ativação (ex: 'sigmoid', 'relu')
 }
 
 export interface NNConfig {
-  learningRate: number;
-  epochs: number;
-  hiddenLayers: NNLayerConfig[];
+  learningRate: number;               // Taxa de aprendizado
+  epochs: number;                     // Número de épocas
+  hiddenLayers: NNLayerConfig[];      // Configuração das camadas ocultas
 }
 
 export type ActivationFunctionType = 'sigmoid' | 'relu' | 'linear' | 'tanh_approx';
 
 export interface TrainingProgress {
-  epoch: number;
-  error: number;
+  epoch: number;                      // Época do treinamento
+  error: number;                      // Erro médio
 }
 
-// Gemini API Types
+// Tipos para API Gemini
 export interface GeminiMessage {
-  role: 'user' | 'model';
-  text: string;
-  timestamp: number;
+  role: 'user' | 'model';             // Quem enviou a mensagem
+  text: string;                       // Texto da mensagem
+  timestamp: number;                  // Momento do envio
 }

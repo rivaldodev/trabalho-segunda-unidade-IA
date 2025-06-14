@@ -1,17 +1,19 @@
-
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import type { TrainingProgress } from '../../types';
 import { Card } from '../../components/ui/Card';
 
+// Propriedades esperadas pelo componente de visualização
 interface NNVisualizationProps {
-  trainingProgress: TrainingProgress[];
-  predictions: string[];
+  trainingProgress: TrainingProgress[]; // Progresso do treinamento (erro por época)
+  predictions: string[];                // Previsões feitas pela rede
 }
 
+// Componente para exibir gráficos e previsões da rede neural
 export const NNVisualization: React.FC<NNVisualizationProps> = ({ trainingProgress, predictions }) => {
   return (
     <div className="space-y-6">
+      {/* Gráfico do erro de treinamento ao longo das épocas */}
       {trainingProgress.length > 0 && (
         <Card title="Erro de Treinamento ao Longo das Épocas" className="bg-gray-800">
           <ResponsiveContainer width="100%" height={300}>
@@ -26,6 +28,7 @@ export const NNVisualization: React.FC<NNVisualizationProps> = ({ trainingProgre
           </ResponsiveContainer>
         </Card>
       )}
+      {/* Lista das previsões feitas pela rede neural */}
       {predictions.length > 0 && (
         <Card title="Previsões no Conjunto de Dados" className="bg-gray-800">
           <ul className="space-y-1 text-sm text-gray-300 max-h-60 overflow-y-auto">
