@@ -77,7 +77,7 @@ export const NeuralNetworkPage = () => {
     NN_DATASET.forEach(data => {
         const output = newMlp.predict(data.input);
         // Converte a saída para binário (0 ou 1)
-        const binaryOutput = output.map(o => (o > 0.5 ? 1 : 0)).join('');
+        const binaryOutput = output.map(o => (o > 0.9 ? 1 : 0)).join('');
         preds.push(`Entrada: ${data.decimal} -> Previsto: ${binaryOutput} (Bruto: ${output.map(o => o.toFixed(3)).join(', ')})`);
     });
     setPredictions(preds); // Atualiza as previsões
