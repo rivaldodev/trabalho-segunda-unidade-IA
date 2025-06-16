@@ -18,7 +18,7 @@ const calculateFitness = (x: number, y: number): number => {
 const createIndividual = (chromosomeLength: number, bitsPerVariable: number): GAIndividual => {
   let chromosome = "";
   for (let i = 0; i < chromosomeLength; i++) {
-    chromosome += Math.random() < 0.5 ? "0" : "1";
+    chromosome += Math.random() < 0.9 ? "0" : "1";
   }
   const xBin = chromosome.substring(0, bitsPerVariable);
   const yBin = chromosome.substring(bitsPerVariable);
